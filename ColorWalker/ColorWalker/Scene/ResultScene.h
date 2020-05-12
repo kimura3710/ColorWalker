@@ -10,6 +10,7 @@ public:
 	unique_Base Update(unique_Base own);
 	SCN_ID GetScnID(void);
 	void Init(void);
+	void Draw(void);
 private:
 	std::vector<char> _push;
 	std::vector<char> _clear;

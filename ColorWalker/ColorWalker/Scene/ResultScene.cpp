@@ -37,3 +37,7 @@ void ResultScene::Init(void)
 {
 	
 }
+
+void ResultScene::Draw(void)
+{
+}

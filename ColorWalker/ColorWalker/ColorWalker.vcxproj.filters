@@ -45,6 +45,9 @@
     <ClCompile Include="Scene\TitleScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="common\KeyMng.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\Geometry.h">
@@ -73,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="Scene\TitleScene.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="common\KeyMng.h">
+      <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

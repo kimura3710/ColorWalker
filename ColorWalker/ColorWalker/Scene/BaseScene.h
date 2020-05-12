@@ -20,6 +20,6 @@ public:
 	virtual ~BaseScene() {};
 	virtual unique_Base Update(unique_Base own) = 0;
 	virtual SCN_ID GetScnID(void) = 0;
+	virtual void Draw(void) = 0;
 	virtual void Init(void) = 0;
 };
-

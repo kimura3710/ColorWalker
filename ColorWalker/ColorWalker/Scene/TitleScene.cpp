@@ -35,3 +35,7 @@ SCN_ID TitleScene::GetScnID(void)
 {
 	return SCN_ID::TITLE;
 }
+
+void TitleScene::Draw(void)
+{
+}
