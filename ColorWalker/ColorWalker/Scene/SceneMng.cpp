@@ -16,6 +16,7 @@ void SceneMng::Run(void)
 	_activeScene = std::make_unique<TitleScene>();
 	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
 	{
+		_time++;
 		_drawList.clear();
 		_drawListEx.clear();
 		SpaceKeyOld = SpaceKeyNow;
@@ -30,7 +31,7 @@ void SceneMng::Run(void)
 	ScreenFlip();
 }
 
-SceneMng::SceneMng()
+SceneMng::SceneMng() :screenSize({ 800,600 }), gameScreenSize({ 500,390 }), gameScreenPos({ (screenSize.x - gameScreenSize.x) / 2,(screenSize.y - gameScreenSize.y) / 2 })
 {
 }
 
@@ -38,17 +39,34 @@ SceneMng::~SceneMng()
 {
 }
 
+void SceneMng::ResetTime(void)
+{
+	_time = 0;
+}
+
 bool SceneMng::SysInit(void)
 {
 	DxLib::SetGraphMode(800, 600, 16);
 	DxLib::ChangeWindowMode(true);
-	SetWindowText("1701312_木村瑞人");
+	SetWindowText("ColorWalker");
 	if (DxLib::DxLib_Init() == -1)
 	{
 		return false;
 	}
 	SET_IMAGE_ID("タイトルロゴ", "image/logo/titlelogo.png");
 	SET_IMAGE_ID("リザルトロゴ", "image/logo/resultlogo.png");
+	ResetTime();
+	colorPtn[0] = 0xffa0dd;
+	colorPtn[1] = 0x00bfff;
+	colorPtn[2] = 0xfffacd;
+	colorPtn[3] = 0xfffafd;
+
+	colorCnt = 0;
+
+	qaList.push_back({ { 0,300 }, { 400,0 }, { 800,300 }, { 400,600 }, colorPtn[0] });
+	qaList.push_back({ { 100,300 }, { 400,75 }, { 700,300 }, { 400,525 }, colorPtn[1] });
+	qaList.push_back({ { 200,300 }, { 400,150 }, { 600,300 }, { 400,450 }, colorPtn[2] });
+	qaList.push_back({ { 300,300 }, { 400,225 }, { 500,300 }, { 400,375 }, colorPtn[3] });
 	return true;
 }
 
@@ -56,6 +74,32 @@ void SceneMng::Draw(void)
 {
 	SetDrawScreen(DX_SCREEN_BACK);
 	DxLib::ClsDrawScreen();
+
+	for (itr = qaList.begin(); itr != qaList.end(); itr++)
+	{
+		DrawQuadrangleAA((*itr).lt.x, (*itr).lt.y, (*itr).rt.x, (*itr).rt.y, (*itr).lb.x, (*itr).lb.y, (*itr).rb.x, (*itr).rb.y, (*itr).color, true);
+		(*itr).lt.x -= 1.3;
+		(*itr).rt.y--;
+		(*itr).lb.x += 1.3;
+		(*itr).rb.y++;
+		if ((*itr).rt.y ==  0)
+		{
+			qaList.push_back({ {300,300},{400,225},{500,300},{400,375},colorPtn[colorCnt] });
+			colorCnt++;
+			if (colorCnt > 3)
+			{
+				colorCnt = 0;
+			}
+			//qaVec[j] = { {400,300},{400,300},{400,300},{400,300},qaVec[j].color };
+		}
+	}
+
+	if (qaList.front().rt.y < -375)
+	{
+		qaList.pop_front();
+	}
+
+	//DrawBox(150, 105, 650, 495, 0x000000, true);
 
 	for (auto data : _drawList)
 	{
@@ -100,4 +144,9 @@ bool SceneMng::addDrawQueEx(DrawQueTEx dQueEx)
 	_drawListEx.emplace_back(dQueEx);
 	
 	return true;
+}
+
+int & SceneMng::GetTime(void)
+{
+	return _time;
 }

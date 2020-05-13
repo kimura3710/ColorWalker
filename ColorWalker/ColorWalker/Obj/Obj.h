@@ -1,8 +1,48 @@
 #pragma once
+#include <memory>
+#include <vector>
+#include "../common/ImageMng.h"
+
+struct GameScreen
+{
+	Vector2 lt = { 150,105 };
+	Vector2 rt = { 150,105 };
+	Vector2 lb = { 150,105 };
+	Vector2 rb = { 150,105 };
+};
+
+enum class ANIM_TYPE
+{
+	NORMAL,
+	MAX
+};
+
+enum class OBJ_TYPE
+{
+	CHARCTOR,
+	MAP,
+	MAX
+};
+
+using AnimVector = std::vector<std::pair<int,int>>;
+
 
 class Obj
 {
 public:
 	Obj();
-	~Obj();
+	virtual~Obj();
+
+	virtual void Draw(void) = 0 ;
+
+	bool OutOfScreen(void);
+	void SetAnimCnt(void);
+
+	int GetLastAnim(void);
+protected:
+	bool SetAnim(const ANIM_TYPE & key, AnimVector & data);
+private:
+	std::map<ANIM_TYPE, AnimVector> _animMap;
+	ANIM_TYPE _animKey;
+	int _animCnt;
 };

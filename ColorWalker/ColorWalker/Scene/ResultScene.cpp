@@ -16,7 +16,7 @@ ResultScene::~ResultScene()
 
 unique_Base ResultScene::Update(unique_Base own)
 {
-	lpSceneMng.addDrawQue({ IMAGE_ID("リザルトロゴ")[0], 200, 100 });
+	lpSceneMng.addDrawQue({ IMAGE_ID("リザルトロゴ")[0], 200, 150 });
 	if (lpSceneMng.SpaceKeyNow == 1 && lpSceneMng.SpaceKeyOld == 0)
 	{
 		return std::move(std::make_unique<TitleScene>());
