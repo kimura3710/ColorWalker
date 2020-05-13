@@ -2,6 +2,7 @@
 #include "TitleScene.h"
 #include "MainScene.h"
 #include "SceneMng.h"
+#include "../common/ImageMng.h"
 
 
 TitleScene::TitleScene()
@@ -16,10 +17,7 @@ TitleScene::~TitleScene()
 
 unique_Base TitleScene::Update(unique_Base own)
 {
-	DxLib::ClsDrawScreen();
-	DxLib::DrawString(400, 300, "タイトルシーン", 0xffffff, true);
-	DxLib::ScreenFlip();
-
+	lpSceneMng.addDrawQue({ IMAGE_ID("タイトルロゴ")[0],200,100 });
 	if (lpSceneMng.SpaceKeyNow == 1 && lpSceneMng.SpaceKeyOld == 0)
 	{
  		return std::move(std::make_unique<MainScene>());
@@ -30,6 +28,7 @@ unique_Base TitleScene::Update(unique_Base own)
 void TitleScene::Init(void)
 {
 }
+	
 
 SCN_ID TitleScene::GetScnID(void)
 {
