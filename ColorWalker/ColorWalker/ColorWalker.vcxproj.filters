@@ -22,6 +22,9 @@
     <Filter Include="common\details">
       <UniqueIdentifier>{d4119121-f7e6-42b9-8500-e498a49abc3d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Obj">
+      <UniqueIdentifier>{852408db-8941-4e52-947f-098619a7ee1c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="common\KeyMng.cpp">
       <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj\Obj.cpp">
+      <Filter>Obj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="common\KeyMng.h">
       <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Obj.h">
+      <Filter>Obj</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
