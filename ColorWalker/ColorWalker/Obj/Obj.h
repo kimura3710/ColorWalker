@@ -44,6 +44,8 @@ public:
 	virtual void Update(void) = 0;
 	virtual void Draw(void) = 0 ;
 
+	bool IsAlive(void) { return _alive; }
+
 	bool OutOfScreen(void);
 	void SetAnimCnt(void);
 

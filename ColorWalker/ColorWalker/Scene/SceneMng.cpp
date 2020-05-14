@@ -55,6 +55,10 @@ bool SceneMng::SysInit(void)
 	}
 	SET_IMAGE_ID("タイトルロゴ", "image/logo/titlelogo.png");
 	SET_IMAGE_ID("リザルトロゴ", "image/logo/resultlogo.png");
+
+	ImageMng::GetInstance().GetID("idle", "image/player/idle/idle.png", { 10,1 }, { 64,63 });
+	ImageMng::GetInstance().GetID("block", "image/tile/tile.png");
+
 	ResetTime();
 	colorPtn[0] = 0xffa0dd;
 	colorPtn[1] = 0x00bfff;
@@ -69,6 +73,7 @@ bool SceneMng::SysInit(void)
 	qaList.push_back({ { 300,300 }, { 400,225 }, { 500,300 }, { 400,375 }, colorPtn[3] });
 	return true;
 }
+
 
 void SceneMng::Draw(void)
 {

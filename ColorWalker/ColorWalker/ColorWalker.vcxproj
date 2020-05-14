@@ -125,6 +125,8 @@
   <ItemGroup>
     <ClCompile Include="common\Geometry.cpp" />
     <ClCompile Include="common\ImageMng.cpp" />
+    <ClCompile Include="common\InputState.cpp" />
+    <ClCompile Include="common\INPUT_ID.cpp" />
     <ClCompile Include="common\KeyMng.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Obj\Obj.cpp" />
@@ -138,6 +140,8 @@
     <ClInclude Include="common\details\Vector2.h" />
     <ClInclude Include="common\Geometry.h" />
     <ClInclude Include="common\ImageMng.h" />
+    <ClInclude Include="common\InputState.h" />
+    <ClInclude Include="common\INPUT_ID.h" />
     <ClInclude Include="common\KeyMng.h" />
     <ClInclude Include="common\Vector2.h" />
     <ClInclude Include="Obj\Obj.h" />

@@ -1,36 +1,25 @@
 #include "KeyMng.h"
 #include <DxLib.h>
 
-int KeyMng::GetNowKey(int keyId)
-{
-	return nowKey[keyId];
-}
-
-int KeyMng::GetOldKey(int keyId)
-{
-	return oldKey[keyId];
-}
-
-bool KeyMng::IsPressing(int keyId) const
-{
-	return (keyState & keyId);
-}
-
-bool KeyMng::IsTringger(int keyId) const
-{
-	return (!(oldKeyState & keyId) && (keyState & keyId));
-}
-
 KeyMng::KeyMng()
 {
+	_confKey.reserve(static_cast<size_t>(end(INPUT_ID())));
+	_confKey.emplace_back(KEY_INPUT_LEFT);
+	_confKey.emplace_back(KEY_INPUT_RIGHT);
+	_confKey.emplace_back(KEY_INPUT_UP);
+	_confKey.emplace_back(KEY_INPUT_DOWN);
+	_confKey.emplace_back(KEY_INPUT_Z);
+	_confKey.emplace_back(KEY_INPUT_X);
+	_confKey.emplace_back(KEY_INPUT_A);
+	_confKey.emplace_back(KEY_INPUT_S);
 }
 
 KeyMng::~KeyMng()
 {
 }
 
-void KeyMng::KeyUpdate(void)
+void KeyMng::Update(void)
 {
-	keyState = oldKeyState;
-	oldKeyState = DxLib::CheckHitKeyAll(DX_CHECKINPUT_KEY);
+	DxLib::GetHitKeyStateAll(_buf);
+	(this->*func)();
 }
