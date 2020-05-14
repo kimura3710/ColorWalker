@@ -24,6 +24,11 @@ int Obj::GetLastAnim(void)
 	return _animMap[_animKey][_animMap[_animKey].size() - 1].second;
 }
 
+COLOR_TYPE Obj::GetColor(void)
+{
+	return colorType;
+}
+
 bool Obj::SetAnim(const ANIM_TYPE & key, AnimVector & data)
 {
 	return _animMap.try_emplace(key,std::move(data)).second;

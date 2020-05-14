@@ -54,6 +54,9 @@
     <ClCompile Include="Obj\Obj.cpp">
       <Filter>Obj</Filter>
     </ClCompile>
+    <ClCompile Include="Obj\Player.cpp">
+      <Filter>Obj</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\Geometry.h">
@@ -87,6 +90,9 @@
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="Obj\Obj.h">
+      <Filter>Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Player.h">
       <Filter>Obj</Filter>
     </ClInclude>
   </ItemGroup>

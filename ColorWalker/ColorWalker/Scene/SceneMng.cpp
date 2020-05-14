@@ -90,7 +90,6 @@ void SceneMng::Draw(void)
 			{
 				colorCnt = 0;
 			}
-			//qaVec[j] = { {400,300},{400,300},{400,300},{400,300},qaVec[j].color };
 		}
 	}
 
@@ -99,7 +98,7 @@ void SceneMng::Draw(void)
 		qaList.pop_front();
 	}
 
-	//DrawBox(150, 105, 650, 495, 0x000000, true);
+	DrawBox(50, 50, 750, 550, 0x000000, true);
 
 	for (auto data : _drawList)
 	{

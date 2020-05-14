@@ -24,6 +24,14 @@ enum class OBJ_TYPE
 	MAX
 };
 
+enum class COLOR_TYPE
+{
+	WHITE,
+	RED,
+	BLUE,
+	YELLOW
+};
+
 using AnimVector = std::vector<std::pair<int,int>>;
 
 
@@ -33,14 +41,23 @@ public:
 	Obj();
 	virtual~Obj();
 
+	virtual void Update(void) = 0;
 	virtual void Draw(void) = 0 ;
 
 	bool OutOfScreen(void);
 	void SetAnimCnt(void);
 
 	int GetLastAnim(void);
+
+	COLOR_TYPE GetColor(void);
 protected:
 	bool SetAnim(const ANIM_TYPE & key, AnimVector & data);
+
+	Vector2d _pos;
+	Vector2d _size;
+	bool _alive;
+
+	COLOR_TYPE colorType;
 private:
 	std::map<ANIM_TYPE, AnimVector> _animMap;
 	ANIM_TYPE _animKey;
