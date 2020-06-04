@@ -129,6 +129,7 @@
     <ClCompile Include="common\INPUT_ID.cpp" />
     <ClCompile Include="common\KeyMng.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Obj\Block\Block.cpp" />
     <ClCompile Include="Obj\Obj.cpp" />
     <ClCompile Include="Obj\Player.cpp" />
     <ClCompile Include="Scene\MainScene.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="common\INPUT_ID.h" />
     <ClInclude Include="common\KeyMng.h" />
     <ClInclude Include="common\Vector2.h" />
+    <ClInclude Include="Obj\Block\Block.h" />
     <ClInclude Include="Obj\Obj.h" />
     <ClInclude Include="Obj\Player.h" />
     <ClInclude Include="Scene\BaseScene.h" />

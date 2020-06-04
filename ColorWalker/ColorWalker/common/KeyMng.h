@@ -12,14 +12,9 @@ public:
 
 	void Update(void) override;
 private:
-	char _buf[256];
-	
 	std::vector<int> _confKey;
-
 	INPUT_ID confID;
-
+	char _buf[256];	
 	int _lastKey;
-
-	void(KeyMng::*func)(void);
 
 };

@@ -1,5 +1,7 @@
 #pragma once
+#include <memory>
 #include "Obj.h"
+class InputState;
 
 class Player : public Obj
 {
@@ -9,8 +11,19 @@ public:
 	~Player();
 	void Update(void) override;
 	void Draw(void) override;
+	OBJ_TYPE GetObjType(void);
 
-	void Move(void);
+	void Landing(void);
 private:
-	void Init(void);
+	bool Init(void);
+	std::unique_ptr<InputState> input;
+
+	void IdleUpdate(void);
+	void WalkUpdate(void);
+	void JumpUpdate(void);
+	void (Player::*_updater)();
+
+	
+
+	
 };

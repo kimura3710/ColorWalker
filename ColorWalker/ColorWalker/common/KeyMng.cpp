@@ -12,6 +12,7 @@ KeyMng::KeyMng()
 	_confKey.emplace_back(KEY_INPUT_X);
 	_confKey.emplace_back(KEY_INPUT_A);
 	_confKey.emplace_back(KEY_INPUT_S);
+
 }
 
 KeyMng::~KeyMng()
@@ -20,6 +21,10 @@ KeyMng::~KeyMng()
 
 void KeyMng::Update(void)
 {
+	InputState::SetOld();
 	DxLib::GetHitKeyStateAll(_buf);
-	(this->*func)();
+	for (auto data : INPUT_ID())
+	{
+		state(data, _buf[_confKey[static_cast<int>(data)]]);
+	}
 }

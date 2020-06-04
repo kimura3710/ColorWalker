@@ -28,6 +28,9 @@
     <Filter Include="common\Input">
       <UniqueIdentifier>{b0561f30-0401-4c7e-8e58-0f703889c548}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Obj\Block">
+      <UniqueIdentifier>{c6e13305-dfe5-4bb4-b5f4-f6908a745ca3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -65,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="common\INPUT_ID.cpp">
       <Filter>common\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj\Block\Block.cpp">
+      <Filter>Obj\Block</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="common\INPUT_ID.h">
       <Filter>common\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Block\Block.h">
+      <Filter>Obj\Block</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -31,7 +31,7 @@ void SceneMng::Run(void)
 	ScreenFlip();
 }
 
-SceneMng::SceneMng() :screenSize({ 800,600 }), gameScreenSize({ 500,390 }), gameScreenPos({ (screenSize.x - gameScreenSize.x) / 2,(screenSize.y - gameScreenSize.y) / 2 })
+SceneMng::SceneMng() :screenSize({ 800,600 }), gameScreenSize({ 700,500 }), gameScreenPos({ (screenSize.x - gameScreenSize.x) / 2,(screenSize.y - gameScreenSize.y) / 2 })
 {
 }
 
@@ -56,7 +56,9 @@ bool SceneMng::SysInit(void)
 	SET_IMAGE_ID("タイトルロゴ", "image/logo/titlelogo.png");
 	SET_IMAGE_ID("リザルトロゴ", "image/logo/resultlogo.png");
 
-	ImageMng::GetInstance().GetID("idle", "image/player/idle/idle.png", { 10,1 }, { 64,63 });
+	ImageMng::GetInstance().GetID("idle", "image/player/idle/idle.png", { 10,1 }, { 64,64 });
+	ImageMng::GetInstance().GetID("run", "image/player/run/run.png", { 8,1 }, { 64,64 });
+	ImageMng::GetInstance().GetID("jump", "image/player/jump/jump.png", { 10,1 }, { 64,64 });
 	ImageMng::GetInstance().GetID("block", "image/tile/tile.png");
 
 	ResetTime();
@@ -83,9 +85,9 @@ void SceneMng::Draw(void)
 	for (itr = qaList.begin(); itr != qaList.end(); itr++)
 	{
 		DrawQuadrangleAA((*itr).lt.x, (*itr).lt.y, (*itr).rt.x, (*itr).rt.y, (*itr).lb.x, (*itr).lb.y, (*itr).rb.x, (*itr).rb.y, (*itr).color, true);
-		(*itr).lt.x -= 1.3;
+		(*itr).lt.x -= 1.3f;
 		(*itr).rt.y--;
-		(*itr).lb.x += 1.3;
+		(*itr).lb.x += 1.3f;
 		(*itr).rb.y++;
 		if ((*itr).rt.y ==  0)
 		{
